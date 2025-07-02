@@ -19,7 +19,7 @@ jobs:
           username: ${{github.actor}}
           password: ${{secrets.GITHUB_TOKEN}}
       - name: Build the (rocker-gdal-dev-python) Docker image
-        if: github.repository == 'mdsumner/gdal-builds'
+        if: github.repository == 'eeholmes/gdal-builds'
         run: docker build -f dockerfiles/rocker-gdal-dev-python.Dockerfile . --tag ghcr.io/eeholmes/gdal-builds:rocker-gdal-dev-python
       - name: Publish (rocker-gdal-dev-python)
         if: github.repository == 'eeholmes/gdal-builds'
