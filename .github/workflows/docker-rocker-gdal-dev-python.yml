@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Login to GitHub Container Registry
-        if: github.repository == 'mdsumner/gdal-builds'
+        if: github.repository == 'eeholmes/gdal-builds'
         uses: docker/login-action@v1
         with:
           registry: ghcr.io
@@ -20,8 +20,8 @@ jobs:
           password: ${{secrets.GITHUB_TOKEN}}
       - name: Build the (rocker-gdal-dev-python) Docker image
         if: github.repository == 'mdsumner/gdal-builds'
-        run: docker build -f dockerfiles/rocker-gdal-dev-python.Dockerfile . --tag ghcr.io/mdsumner/gdal-builds:rocker-gdal-dev-python
+        run: docker build -f dockerfiles/rocker-gdal-dev-python.Dockerfile . --tag ghcr.io/eeholmes/gdal-builds:rocker-gdal-dev-python
       - name: Publish (rocker-gdal-dev-python)
-        if: github.repository == 'mdsumner/gdal-builds'
-        run: docker push ghcr.io/mdsumner/gdal-builds:rocker-gdal-dev-python
+        if: github.repository == 'eeholmes/gdal-builds'
+        run: docker push ghcr.io/eeholmes/gdal-builds:rocker-gdal-dev-python
 
