@@ -68,3 +68,5 @@ RUN unset MAKEFLAGS
 
 USER rstudio
 WORKDIR ${HOME}
+EXPOSE 8888
+
